@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Border Radius Previewer: atur border-radius setiap sudut dan salin CSS-nya.">
+  <title>Border Radius Previewer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card">
+    <header>
+      <p class="eyebrow">App Ideas · Tier 1</p>
+      <h1>Border Radius Previewer</h1>
+      <p class="subtitle">Atur lengkungan setiap sudut kotak, lihat hasilnya, lalu salin CSS-nya.</p>
+    </header>
+
+    <div class="layout">
+      <section class="preview" aria-label="Pratinjau">
+        <div class="preview-frame">
+          <div id="preview-box" class="preview-box"></div>
+        </div>
+      </section>
+
+      <section id="controls" class="controls" aria-label="Pengaturan radius">
+        <div class="options">
+          <label class="option">
+            Satuan
+            <select id="unit-select">
+              <option value="px">px</option>
+              <option value="%">%</option>
+            </select>
+          </label>
+          <label class="toggle">
+            <input id="advanced-toggle" type="checkbox">
+            Mode 8 nilai
+          </label>
+        </div>
+        <p class="hint advanced-only">
+          Setiap sudut punya radius horizontal dan vertikal. Di CSS, radius vertikal ditulis setelah tanda <code>/</code>.
+        </p>
+
+        <div class="corners">
+          <fieldset class="corner">
+            <legend>Kiri atas</legend>
+            <div class="slider">
+              <div class="slider-header">
+                <label for="top-left-x"><span class="simple-only">Radius</span><span class="advanced-only">Horizontal</span></label>
+                <output for="top-left-x">48px</output>
+              </div>
+              <input id="top-left-x" type="range" min="0" max="240" value="48">
+            </div>
+            <div class="slider advanced-only">
+              <div class="slider-header">
+                <label for="top-left-y">Vertikal</label>
+                <output for="top-left-y">48px</output>
+              </div>
+              <input id="top-left-y" type="range" min="0" max="240" value="48">
+            </div>
+          </fieldset>
+
+          <fieldset class="corner">
+            <legend>Kanan atas</legend>
+            <div class="slider">
+              <div class="slider-header">
+                <label for="top-right-x"><span class="simple-only">Radius</span><span class="advanced-only">Horizontal</span></label>
+                <output for="top-right-x">16px</output>
+              </div>
+              <input id="top-right-x" type="range" min="0" max="240" value="16">
+            </div>
+            <div class="slider advanced-only">
+              <div class="slider-header">
+                <label for="top-right-y">Vertikal</label>
+                <output for="top-right-y">16px</output>
+              </div>
+              <input id="top-right-y" type="range" min="0" max="240" value="16">
+            </div>
+          </fieldset>
+
+          <fieldset class="corner">
+            <legend>Kiri bawah</legend>
+            <div class="slider">
+              <div class="slider-header">
+                <label for="bottom-left-x"><span class="simple-only">Radius</span><span class="advanced-only">Horizontal</span></label>
+                <output for="bottom-left-x">16px</output>
+              </div>
+              <input id="bottom-left-x" type="range" min="0" max="240" value="16">
+            </div>
+            <div class="slider advanced-only">
+              <div class="slider-header">
+                <label for="bottom-left-y">Vertikal</label>
+                <output for="bottom-left-y">16px</output>
+              </div>
+              <input id="bottom-left-y" type="range" min="0" max="240" value="16">
+            </div>
+          </fieldset>
+
+          <fieldset class="corner">
+            <legend>Kanan bawah</legend>
+            <div class="slider">
+              <div class="slider-header">
+                <label for="bottom-right-x"><span class="simple-only">Radius</span><span class="advanced-only">Horizontal</span></label>
+                <output for="bottom-right-x">48px</output>
+              </div>
+              <input id="bottom-right-x" type="range" min="0" max="240" value="48">
+            </div>
+            <div class="slider advanced-only">
+              <div class="slider-header">
+                <label for="bottom-right-y">Vertikal</label>
+                <output for="bottom-right-y">48px</output>
+              </div>
+              <input id="bottom-right-y" type="range" min="0" max="240" value="48">
+            </div>
+          </fieldset>
+        </div>
+      </section>
+
+      <section class="result" aria-labelledby="result-title">
+        <div class="result-header">
+          <h2 id="result-title">CSS</h2>
+          <button id="copy-button" class="copy-button" type="button">Salin CSS</button>
+        </div>
+        <pre class="code"><code id="css-code">border-radius: 48px 16px;</code></pre>
+        <p id="copy-status" class="copy-status" role="status"></p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    Spesifikasi:
+    <a href="https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Border-Radius-Previewer.md">Border Radius Previewer di app-ideas</a>
+  </footer>
+
+  <script src="border-radius.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

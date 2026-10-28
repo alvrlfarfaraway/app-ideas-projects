@@ -1,0 +1,317 @@
+:root {
+  --bg: #f1f3f5;
+  --surface: #ffffff;
+  --text: #212529;
+  --muted: #6c757d;
+  --border: #dee2e6;
+  --accent: #3b5bdb;
+  --on-accent: #ffffff;
+  --success: #237032;
+  --error: #c92a2a;
+  --shape-start: #4c6ef5;
+  --shape-end: #ae3ec9;
+  --mono: ui-monospace, "Cascadia Mono", Consolas, "SF Mono", Menlo, monospace;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #101113;
+    --surface: #1a1b1e;
+    --text: #e9ecef;
+    --muted: #a0a6ad;
+    --border: #2c2e33;
+    --accent: #91a7ff;
+    --on-accent: #101113;
+    --success: #8ce99a;
+    --error: #ff8787;
+    --shape-start: #748ffc;
+    --shape-end: #da77f2;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.card {
+  width: 100%;
+  max-width: 840px;
+  padding: 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.06);
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+h1 {
+  margin: 4px 0 0;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.subtitle {
+  margin: 4px 0 28px;
+  color: var(--muted);
+}
+
+.layout {
+  display: grid;
+  gap: 24px;
+}
+
+/* Pratinjau: garis putus-putus menunjukkan ukuran asli kotak sebelum sudutnya dilengkungkan. */
+.preview {
+  display: grid;
+  place-items: center;
+  padding: 16px 0;
+}
+
+.preview-frame {
+  width: min(240px, 100%);
+  aspect-ratio: 1;
+  outline: 2px dashed var(--border);
+}
+
+.preview-box {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--shape-start), var(--shape-end));
+}
+
+/* Opsi */
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+  margin-bottom: 16px;
+}
+
+.option {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+select {
+  padding: 6px 10px;
+  font: inherit;
+  font-weight: 400;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.toggle input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.hint {
+  margin: 0 0 16px;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.hint code {
+  font-family: var(--mono);
+  color: var(--text);
+}
+
+/* Slider untuk setiap sudut, disusun 2x2 sesuai posisi sudutnya */
+.corners {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.corner {
+  min-width: 0;
+  margin: 0;
+  padding: 8px 14px 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.corner legend {
+  padding: 0 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.slider + .slider {
+  margin-top: 12px;
+}
+
+.slider-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.slider-header output {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+}
+
+.slider input {
+  width: 100%;
+  margin: 6px 0 0;
+  accent-color: var(--accent);
+}
+
+/* Mode 4 nilai menyembunyikan elemen khusus mode 8 nilai, dan sebaliknya. */
+.controls:not(.is-advanced) .advanced-only,
+.controls.is-advanced .simple-only {
+  display: none;
+}
+
+/* Hasil CSS */
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.result-header h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.copy-button {
+  padding: 8px 16px;
+  font: inherit;
+  font-weight: 600;
+  color: var(--on-accent);
+  background: var(--accent);
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.copy-button:hover {
+  filter: brightness(1.1);
+}
+
+.copy-button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.code {
+  margin: 0;
+  padding: 12px 14px;
+  font: 0.9375rem/1.5 var(--mono);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  background: var(--bg);
+  border-radius: 10px;
+}
+
+.copy-status {
+  min-height: 1.5em;
+  margin: 8px 0 0;
+  font-size: 0.875rem;
+  color: var(--success);
+}
+
+.copy-status.is-error {
+  color: var(--error);
+}
+
+.footer {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.footer a {
+  color: var(--accent);
+}
+
+/* Layar lebar: pratinjau dan CSS di kiri, pengaturan di kanan */
+@media (min-width: 800px) {
+  .layout {
+    grid-template-columns: 280px minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      "preview controls"
+      "result  controls";
+    column-gap: 32px;
+  }
+
+  .preview {
+    grid-area: preview;
+  }
+
+  .controls {
+    grid-area: controls;
+  }
+
+  .result {
+    grid-area: result;
+    align-self: start;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 24px 20px;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+}
+
+/* Layar sangat sempit: satu sudut per baris agar label dan angka tetap muat */
+@media (max-width: 359px) {
+  .corners {
+    grid-template-columns: 1fr;
+  }
+}
