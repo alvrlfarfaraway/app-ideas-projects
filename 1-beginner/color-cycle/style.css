@@ -1,0 +1,404 @@
+:root {
+  --bg: #f1f3f5;
+  --surface: #ffffff;
+  --text: #212529;
+  --muted: #6c757d;
+  --border: #dee2e6;
+  --accent: #3b5bdb;
+  --accent-soft: #edf2ff;
+  --error: #c92a2a;
+  --error-soft: #ffe3e3;
+  --mono: ui-monospace, "Cascadia Mono", Consolas, "SF Mono", Menlo, monospace;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #101113;
+    --surface: #1a1b1e;
+    --text: #e9ecef;
+    --muted: #a0a6ad;
+    --border: #2c2e33;
+    --accent: #91a7ff;
+    --accent-soft: #1d2340;
+    --error: #ff8787;
+    --error-soft: #3a1d1f;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.card {
+  width: 100%;
+  max-width: 520px;
+  padding: 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.06);
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+h1 {
+  margin: 4px 0 0;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.subtitle {
+  margin: 4px 0 28px;
+  color: var(--muted);
+}
+
+.field {
+  margin-bottom: 20px;
+}
+
+.field-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+output {
+  font-size: 0.875rem;
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+}
+
+.color-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 180px;
+  margin-bottom: 24px;
+  padding: 16px 20px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.color-code {
+  font: 600 1.75rem/1.2 var(--mono);
+}
+
+.color-alt {
+  font: 500 0.875rem/1.5 var(--mono);
+  opacity: 0.8;
+}
+
+/* Pilihan format: radio button yang tampil sebagai tombol bersebelahan. */
+.format-picker {
+  min-width: 0;
+  margin: 0 0 20px;
+  padding: 0;
+  border: none;
+}
+
+.format-picker legend {
+  margin-bottom: 8px;
+  padding: 0;
+  font-weight: 600;
+}
+
+.segmented {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  background: var(--bg);
+  border-radius: 10px;
+}
+
+.segment {
+  position: relative;
+  padding: 6px 14px;
+  font-weight: 500;
+  color: var(--muted);
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.segment input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: inherit;
+}
+
+.segment:has(input:checked) {
+  color: var(--text);
+  background: var(--surface);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.15);
+}
+
+.segment:has(input:focus-visible) {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.format-picker:disabled .segment {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Tabel komponen: nama, nilai, dan kenaikan per langkah. */
+.components {
+  margin-bottom: 20px;
+}
+
+.components-header,
+.component-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 128px 96px;
+  column-gap: 12px;
+  align-items: center;
+}
+
+.components-header {
+  padding-bottom: 6px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--muted);
+}
+
+.component-row {
+  row-gap: 8px;
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+}
+
+.component-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.swatch {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+}
+
+.value-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.value-input,
+.increment-input {
+  width: 76px;
+  padding: 6px 8px;
+  font: 500 1.125rem/1.3 var(--mono);
+  color: var(--text);
+  background: transparent;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.increment-input {
+  width: 100%;
+}
+
+.value-input.is-hex {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.value-input:focus,
+.increment-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
+.value-input[aria-invalid="true"],
+.increment-input[aria-invalid="true"] {
+  border-color: var(--error);
+}
+
+.value-input[aria-invalid="true"]:focus,
+.increment-input[aria-invalid="true"]:focus {
+  box-shadow: 0 0 0 4px var(--error-soft);
+}
+
+/* Selama warna berputar, isian hanya bisa dibaca. */
+.value-input:read-only,
+.increment-input:read-only {
+  background: var(--bg);
+  border-style: dashed;
+}
+
+.value-note {
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+}
+
+.meter {
+  grid-column: 1 / -1;
+  height: 4px;
+  overflow: hidden;
+  background: var(--border);
+  border-radius: 2px;
+}
+
+.meter-fill {
+  height: 100%;
+  background: var(--meter-color);
+}
+
+.error {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--error);
+}
+
+.error:empty {
+  display: none;
+}
+
+.hint {
+  margin: 4px 0 0;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+input[type="range"] {
+  width: 100%;
+  margin: 0;
+  accent-color: var(--accent);
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.primary-button,
+.secondary-button {
+  padding: 12px 16px;
+  font: inherit;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.primary-button {
+  flex: 1;
+  color: #ffffff;
+  background: var(--accent);
+  border: none;
+}
+
+.primary-button.is-running {
+  background: var(--error);
+}
+
+.secondary-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+  background: transparent;
+  border: 2px solid var(--border);
+}
+
+.primary-button:disabled,
+.secondary-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.primary-button:focus-visible,
+.secondary-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
+@media (prefers-color-scheme: dark) {
+  .primary-button {
+    color: #101113;
+  }
+}
+
+.status {
+  min-height: 1.5em;
+  margin: 12px 0 0;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.footer {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.footer a {
+  color: var(--accent);
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 24px 20px;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  /* Kode HSL bisa sampai 20 karakter; ukuran ini membuatnya tetap satu baris. */
+  .color-code {
+    font-size: 1.25rem;
+  }
+
+  .components-header,
+  .component-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .components-header span:first-child {
+    display: none;
+  }
+
+  .component-name {
+    grid-column: 1 / -1;
+  }
+}

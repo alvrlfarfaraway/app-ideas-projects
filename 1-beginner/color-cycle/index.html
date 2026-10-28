@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Color Cycle: lihat bagaimana perubahan kecil pada setiap komponen RGB atau HSL mengubah sebuah warna.">
+  <title>Color Cycle — Siklus Warna</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card">
+    <header>
+      <p class="eyebrow">App Ideas · Tier 1</p>
+      <h1>Color Cycle</h1>
+      <p class="subtitle">Ubah sedikit demi sedikit setiap komponen warna, lalu lihat pengaruhnya pada kotak.</p>
+    </header>
+
+    <section id="color-box" class="color-box" aria-label="Warna saat ini">
+      <span id="color-code" class="color-code"></span>
+      <span id="color-alt" class="color-alt"></span>
+    </section>
+
+    <form id="cycle-form" novalidate>
+      <fieldset id="format-picker" class="format-picker">
+        <legend>Format warna</legend>
+        <div class="segmented">
+          <label class="segment"><input type="radio" name="format" value="rgb" checked>RGB (hex)</label>
+          <label class="segment"><input type="radio" name="format" value="hsl">HSL</label>
+        </div>
+      </fieldset>
+
+      <div class="components">
+        <div class="components-header" aria-hidden="true">
+          <span>Komponen</span>
+          <span id="value-heading">Nilai</span>
+          <span id="increment-heading">Kenaikan per langkah</span>
+        </div>
+        <div id="component-rows"></div>
+        <p id="wrap-hint" class="hint"></p>
+      </div>
+
+      <div class="field">
+        <div class="field-header">
+          <label for="interval-input">Interval perubahan</label>
+          <output id="interval-value" for="interval-input"></output>
+        </div>
+        <input id="interval-input" type="range" min="200" max="2000" step="50">
+      </div>
+
+      <div class="actions">
+        <button id="toggle-button" class="primary-button" type="submit">Mulai</button>
+        <button id="reset-button" class="secondary-button" type="button">
+          <span id="start-swatch" class="swatch" aria-hidden="true"></span>
+          Kembali ke awal
+        </button>
+      </div>
+      <p id="status" class="status" aria-live="polite"></p>
+    </form>
+  </main>
+
+  <footer class="footer">
+    Spesifikasi:
+    <a href="https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Color-Cycle-App.md">Color Cycle di app-ideas</a>
+  </footer>
+
+  <template id="component-row-template">
+    <div class="component-row">
+      <span class="component-name">
+        <span class="swatch" aria-hidden="true"></span>
+        <span class="name-text"></span>
+      </span>
+      <span class="value-cell">
+        <input class="value-input" autocomplete="off" spellcheck="false">
+        <span class="value-note" aria-hidden="true"></span>
+      </span>
+      <input class="increment-input" type="number" step="1" autocomplete="off">
+      <div class="meter" aria-hidden="true"><div class="meter-fill"></div></div>
+      <p class="error" aria-live="polite"></p>
+    </div>
+  </template>
+
+  <script src="color-cycle.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -26,14 +26,14 @@ Setelah push, GitHub Pages memperbarui versi online dalam 1–2 menit, misalnya 
 
 Project yang sudah selesai menaut ke folder kodenya dan demo online-nya, sedangkan yang belum menaut ke spesifikasinya.
 
-### Tier 1: Beginner (5/35)
+### Tier 1: Beginner (6/35)
 
 - [x] [Bin2Dec](1-beginner/bin2dec) — Binary-to-Decimal number converter · [demo](https://alvrlfarfaraway.github.io/app-ideas-projects/1-beginner/bin2dec/)
 - [x] [Border Radius Previewer](1-beginner/border-radius-previewer) — Preview how CSS3 border-radius values affect an element · [demo](https://alvrlfarfaraway.github.io/app-ideas-projects/1-beginner/border-radius-previewer/)
 - [x] [Calculator](1-beginner/calculator) — Calculator · [demo](https://alvrlfarfaraway.github.io/app-ideas-projects/1-beginner/calculator/)
 - [x] [Christmas Lights](1-beginner/christmas-lights) — Simulate a string of Christmas lights · [demo](https://alvrlfarfaraway.github.io/app-ideas-projects/1-beginner/christmas-lights/)
 - [x] [Cause Effect App](1-beginner/cause-effect-app) — Click list item to display item details · [demo](https://alvrlfarfaraway.github.io/app-ideas-projects/1-beginner/cause-effect-app/)
-- [ ] [Color Cycle](https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Color-Cycle-App.md) — Cycle a color value through incremental changes
+- [x] [Color Cycle](1-beginner/color-cycle) — Cycle a color value through incremental changes · [demo](https://alvrlfarfaraway.github.io/app-ideas-projects/1-beginner/color-cycle/)
 - [ ] [Countdown Timer](https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Countdown-Timer-App.md) — Event Countdown timer
 - [ ] [CSV2JSON App](https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/CSV2JSON-App.md) — CSV to JSON converter
 - [ ] [Dollars to Cents](https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Dollars-To-Cents-App.md) — Convert dollars to cents
