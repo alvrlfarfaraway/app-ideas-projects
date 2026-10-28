@@ -1,0 +1,254 @@
+:root {
+  --bg: #f1f3f5;
+  --surface: #ffffff;
+  --text: #212529;
+  --muted: #6c757d;
+  --border: #dee2e6;
+  --accent: #3b5bdb;
+  --accent-soft: #edf2ff;
+  --error: #c92a2a;
+  --error-soft: #ffe3e3;
+  --mono: ui-monospace, "Cascadia Mono", Consolas, "SF Mono", Menlo, monospace;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #101113;
+    --surface: #1a1b1e;
+    --text: #e9ecef;
+    --muted: #a0a6ad;
+    --border: #2c2e33;
+    --accent: #91a7ff;
+    --accent-soft: #1d2340;
+    --error: #ff8787;
+    --error-soft: #3a1d1f;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.card {
+  width: 100%;
+  max-width: 560px;
+  padding: 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.06);
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+h1 {
+  margin: 4px 0 0;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.subtitle {
+  margin: 4px 0 28px;
+  color: var(--muted);
+}
+
+.field {
+  margin-bottom: 20px;
+}
+
+.field-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+output {
+  font-size: 0.875rem;
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+}
+
+/* Panggung lampu selalu gelap, seperti malam hari. */
+.stage {
+  margin-bottom: 20px;
+  padding: 28px 16px;
+  background: radial-gradient(ellipse at top, #1c2541, #0b0d17 70%);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.light-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.light-row {
+  --gap: 12px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--gap);
+  container-type: inline-size;
+}
+
+/* Kabel yang menghubungkan lampu. */
+.light-row::before {
+  content: "";
+  position: absolute;
+  inset: 50% 0 auto;
+  height: 2px;
+  background: #3a4060;
+}
+
+.light {
+  --diameter: min(var(--size), calc((100cqi - 6 * var(--gap)) / 7));
+  position: relative;
+  flex: none;
+  width: var(--diameter);
+  height: var(--diameter);
+  padding: 0;
+  background: rgb(var(--rgb) / 0.3);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.15s, filter 0.15s, box-shadow 0.15s;
+}
+
+.light.is-lit {
+  background: var(--color);
+  filter: brightness(var(--brightness));
+  box-shadow: 0 0 var(--glow) calc(var(--glow) / 4) rgb(var(--rgb) / 0.75);
+}
+
+.light.is-selected {
+  outline: 2px dashed #ffffff;
+  outline-offset: 4px;
+}
+
+.light:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 4px;
+}
+
+.toggle-button {
+  width: 100%;
+  margin-bottom: 24px;
+  padding: 12px;
+  font: inherit;
+  font-weight: 600;
+  color: #ffffff;
+  background: var(--accent);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.toggle-button[aria-pressed="true"] {
+  background: var(--error);
+}
+
+.toggle-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
+@media (prefers-color-scheme: dark) {
+  .toggle-button {
+    color: #101113;
+  }
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0 20px;
+}
+
+input[type="range"] {
+  width: 100%;
+  margin: 0;
+  accent-color: var(--accent);
+}
+
+.editor {
+  margin: 4px 0 0;
+  padding: 16px 20px 0;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.editor legend {
+  padding: 0 6px;
+  font-weight: 600;
+}
+
+.hint {
+  margin: 0 0 16px;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.editor-fields {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0 24px;
+}
+
+.color-input {
+  width: 64px;
+  height: 36px;
+  padding: 2px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.footer {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.footer a {
+  color: var(--accent);
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 24px 20px;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+}

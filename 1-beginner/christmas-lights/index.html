@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Christmas Lights: simulasi untaian lampu Natal yang menyala bergantian.">
+  <title>Christmas Lights — Lampu Natal Berkelip</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card">
+    <header>
+      <p class="eyebrow">App Ideas · Tier 1</p>
+      <h1>Christmas Lights</h1>
+      <p class="subtitle">Untaian lampu yang menyala bergantian seperti lampu Natal.</p>
+    </header>
+
+    <section class="stage" aria-label="Untaian lampu">
+      <div id="light-rows" class="light-rows"></div>
+    </section>
+
+    <button id="toggle-button" class="toggle-button" type="button" aria-pressed="false">Mulai</button>
+
+    <div class="controls">
+      <div class="field">
+        <div class="field-header">
+          <label for="interval-input">Interval</label>
+          <output id="interval-value" for="interval-input"></output>
+        </div>
+        <input id="interval-input" type="range" min="50" max="2000" step="50">
+      </div>
+
+      <div class="field">
+        <div class="field-header">
+          <label for="intensity-input">Intensitas nyala</label>
+          <output id="intensity-value" for="intensity-input"></output>
+        </div>
+        <input id="intensity-input" type="range" min="10" max="100" step="5">
+      </div>
+
+      <div class="field">
+        <div class="field-header">
+          <label for="rows-input">Jumlah baris</label>
+          <output id="rows-value" for="rows-input"></output>
+        </div>
+        <input id="rows-input" type="range" min="1" max="7" step="1">
+      </div>
+    </div>
+
+    <fieldset class="editor">
+      <legend id="editor-title">Lampu 1</legend>
+      <p class="hint">Klik sebuah lampu untuk mengaturnya. Warna dan ukurannya berlaku di semua baris.</p>
+
+      <div class="editor-fields">
+        <div class="field">
+          <div class="field-header">
+            <label for="color-input">Warna</label>
+          </div>
+          <input id="color-input" class="color-input" type="color">
+        </div>
+
+        <div class="field">
+          <div class="field-header">
+            <label for="size-input">Ukuran</label>
+            <output id="size-value" for="size-input"></output>
+          </div>
+          <input id="size-input" type="range" min="24" max="72" step="4">
+        </div>
+      </div>
+    </fieldset>
+  </main>
+
+  <footer class="footer">
+    Spesifikasi:
+    <a href="https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Christmas-Lights-App.md">Christmas Lights di app-ideas</a>
+  </footer>
+
+  <script src="lights.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
