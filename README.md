@@ -23,9 +23,9 @@ Setiap project berada di folder sesuai tier-nya: `1-beginner/`, `2-intermediate/
 
 Project yang sudah selesai menaut ke folder kodenya, sedangkan yang belum menaut ke spesifikasinya.
 
-### Tier 1: Beginner (0/35)
+### Tier 1: Beginner (1/35)
 
-- [ ] [Bin2Dec](https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Bin2Dec-App.md) — Binary-to-Decimal number converter
+- [x] [Bin2Dec](1-beginner/bin2dec) — Binary-to-Decimal number converter
 - [ ] [Border Radius Previewer](https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Border-Radius-Previewer.md) — Preview how CSS3 border-radius values affect an element
 - [ ] [Calculator](https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Calculator-App.md) — Calculator
 - [ ] [Christmas Lights](https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Christmas-Lights-App.md) — Simulate a string of Christmas lights

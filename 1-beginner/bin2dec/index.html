@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bin2Dec: ubah bilangan biner menjadi desimal secara langsung.">
+  <title>Bin2Dec — Konverter Biner ke Desimal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card">
+    <header>
+      <p class="eyebrow">App Ideas · Tier 1</p>
+      <h1>Bin2Dec</h1>
+      <p class="subtitle">Ubah bilangan biner menjadi desimal secara langsung.</p>
+    </header>
+
+    <div class="field">
+      <div class="field-header">
+        <label for="binary-input">Biner</label>
+        <span id="digit-counter" class="counter">0/8 digit</span>
+      </div>
+      <input
+        id="binary-input"
+        class="binary-input"
+        type="text"
+        inputmode="numeric"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="contoh: 1011"
+        aria-describedby="error-message"
+      >
+      <p id="error-message" class="error" role="alert"></p>
+    </div>
+
+    <label class="toggle">
+      <input id="limit-toggle" type="checkbox" checked>
+      Batasi 8 digit
+    </label>
+
+    <div class="field">
+      <div class="field-header">
+        <label for="decimal-output">Desimal</label>
+      </div>
+      <output id="decimal-output" class="decimal-output" for="binary-input" aria-live="polite">—</output>
+    </div>
+  </main>
+
+  <footer class="footer">
+    Spesifikasi:
+    <a href="https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Bin2Dec-App.md">Bin2Dec di app-ideas</a>
+  </footer>
+
+  <script src="converter.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
