@@ -1,0 +1,265 @@
+:root {
+  --bg: #f1f3f5;
+  --surface: #ffffff;
+  --text: #212529;
+  --muted: #6c757d;
+  --border: #dee2e6;
+  --hover: #f1f3f5;
+  --accent: #3b5bdb;
+  --accent-soft: #edf2ff;
+  --accent-strong: #364fc7;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #101113;
+    --surface: #1a1b1e;
+    --text: #e9ecef;
+    --muted: #a0a6ad;
+    --border: #2c2e33;
+    --hover: #25262b;
+    --accent: #91a7ff;
+    --accent-soft: #1d2340;
+    --accent-strong: #bac8ff;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Pastikan atribut hidden selalu menyembunyikan elemen, apa pun nilai display-nya. */
+[hidden] {
+  display: none !important;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.card {
+  width: 100%;
+  max-width: 840px;
+  padding: 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.06);
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+h1 {
+  margin: 4px 0 0;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.subtitle {
+  margin: 4px 0 28px;
+  color: var(--muted);
+}
+
+.layout {
+  display: grid;
+  gap: 24px;
+}
+
+/* Panel ringkasan: daftar nama */
+.pane-title {
+  margin: 0 0 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.person-list {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.person-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  font: inherit;
+  text-align: left;
+  color: var(--text);
+  background: transparent;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+/* Efek hover: latar abu-abu tipis */
+.person-button:hover {
+  background: var(--hover);
+}
+
+.person-button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Efek terpilih: berbeda dari hover, yaitu warna aksen, teks tebal, dan garis di kiri */
+.person-button[aria-current="true"] {
+  font-weight: 600;
+  color: var(--accent-strong);
+  background: var(--accent-soft);
+  box-shadow: inset 4px 0 0 var(--accent);
+}
+
+/* Avatar berisi inisial; warnanya diatur lewat variabel --hue dari app.js */
+.avatar {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: hsl(var(--hue) 55% 30%);
+  background: hsl(var(--hue) 75% 90%);
+  border-radius: 50%;
+}
+
+@media (prefers-color-scheme: dark) {
+  .avatar {
+    color: hsl(var(--hue) 80% 85%);
+    background: hsl(var(--hue) 35% 25%);
+  }
+}
+
+.avatar-large {
+  width: 64px;
+  height: 64px;
+  font-size: 1.25rem;
+}
+
+/* Panel detail */
+.detail-pane {
+  display: grid;
+  min-height: 260px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.empty-state {
+  max-width: 30ch;
+  margin: 0;
+  place-self: center;
+  text-align: center;
+  color: var(--muted);
+}
+
+.details-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.details-name {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+
+.detail-list {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+}
+
+.detail-list div {
+  display: grid;
+  gap: 2px;
+}
+
+.detail-list dt {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.detail-list dd {
+  margin: 0;
+}
+
+.address {
+  white-space: pre-line;
+}
+
+.footer {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.footer a {
+  color: var(--accent);
+}
+
+/* Layar sedang: label dan isi detail bersebelahan */
+@media (min-width: 560px) {
+  .detail-list div {
+    grid-template-columns: 120px minmax(0, 1fr);
+    gap: 16px;
+  }
+}
+
+/* Layar lebar: daftar di kiri, detail di kanan */
+@media (min-width: 760px) {
+  .layout {
+    grid-template-columns: 260px minmax(0, 1fr);
+    align-items: start;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 24px 20px;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  .detail-pane {
+    padding: 20px;
+  }
+}

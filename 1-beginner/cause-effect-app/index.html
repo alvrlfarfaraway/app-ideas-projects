@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cause Effect App: klik sebuah nama untuk melihat detail orang tersebut.">
+  <title>Cause Effect App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card">
+    <header>
+      <p class="eyebrow">App Ideas · Tier 1</p>
+      <h1>Cause Effect App</h1>
+      <p class="subtitle">Klik sebuah nama untuk melihat detail orang tersebut.</p>
+    </header>
+
+    <div class="layout">
+      <section class="list-pane" aria-labelledby="list-title">
+        <h2 id="list-title" class="pane-title">Daftar orang</h2>
+        <ul id="person-list" class="person-list"></ul>
+      </section>
+
+      <section id="detail-pane" class="detail-pane" aria-label="Detail orang" aria-live="polite">
+        <p id="empty-state" class="empty-state">
+          Pilih salah satu nama untuk melihat alamat, nomor telepon, dan tanggal lahirnya.
+        </p>
+
+        <article id="details" hidden>
+          <div class="details-header">
+            <span id="detail-avatar" class="avatar avatar-large" aria-hidden="true"></span>
+            <h2 id="detail-name" class="details-name"></h2>
+          </div>
+          <dl class="detail-list">
+            <div>
+              <dt>Alamat</dt>
+              <dd id="detail-address" class="address"></dd>
+            </div>
+            <div>
+              <dt>Telepon</dt>
+              <dd id="detail-telephone"></dd>
+            </div>
+            <div>
+              <dt>Tanggal lahir</dt>
+              <dd id="detail-birthday"></dd>
+            </div>
+          </dl>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    Spesifikasi:
+    <a href="https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Cause-Effect-App.md">Cause Effect App di app-ideas</a>
+  </footer>
+
+  <script src="people.js"></script>
+  <script src="format.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
