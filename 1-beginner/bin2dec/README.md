@@ -1,6 +1,6 @@
 # Bin2Dec — Konverter Biner ke Desimal
 
-> **Tier 1 — Beginner** · Spesifikasi: [Bin2Dec-App.md](https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Bin2Dec-App.md)
+> **Tier 1 — Beginner** · Spesifikasi: [Bin2Dec-App.md](https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Bin2Dec-App.md) · **[Coba online](https://alvrlfarfaraway.github.io/app-ideas-projects/1-beginner/bin2dec/)**
 
 Bin2Dec mengubah bilangan biner (basis 2) menjadi bilangan desimal (basis 10). Hasilnya langsung muncul saat kamu mengetik.
 

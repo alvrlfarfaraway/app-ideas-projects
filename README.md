@@ -2,7 +2,7 @@
 
 Kumpulan project latihan dari daftar [app-ideas](https://github.com/florinpop17/app-ideas) karya Florin Pop. Dikerjakan bertahap mulai dari **Beginner**, lalu **Intermediate**, lalu **Advanced**.
 
-Semua project dibuat dengan HTML, CSS, dan JavaScript murni. Tidak perlu instalasi: cukup buka `index.html` di folder project dengan browser.
+Semua project dibuat dengan HTML, CSS, dan JavaScript murni. Tidak perlu instalasi: cukup buka `index.html` di folder project dengan browser, atau coba versi online-nya di [GitHub Pages](https://alvrlfarfaraway.github.io/app-ideas-projects/).
 
 ## Struktur
 
@@ -12,20 +12,23 @@ Setiap project berada di folder sesuai tier-nya: `1-beginner/`, `2-intermediate/
 
 1. Buat folder di tier yang sesuai, misalnya `1-beginner/calculator/`.
 2. Kerjakan user stories dari spesifikasinya.
-3. Centang project tersebut di daftar progress di bawah, lalu commit:
+3. Centang project tersebut di daftar progress di bawah, lalu commit dan push:
 
    ```bash
    git add .
    git commit -m "feat(calculator): add calculator app"
+   git push
    ```
+
+Setelah push, GitHub Pages memperbarui versi online dalam 1–2 menit, misalnya di `https://alvrlfarfaraway.github.io/app-ideas-projects/1-beginner/calculator/`.
 
 ## Progress
 
-Project yang sudah selesai menaut ke folder kodenya, sedangkan yang belum menaut ke spesifikasinya.
+Project yang sudah selesai menaut ke folder kodenya dan demo online-nya, sedangkan yang belum menaut ke spesifikasinya.
 
 ### Tier 1: Beginner (1/35)
 
-- [x] [Bin2Dec](1-beginner/bin2dec) — Binary-to-Decimal number converter
+- [x] [Bin2Dec](1-beginner/bin2dec) — Binary-to-Decimal number converter · [demo](https://alvrlfarfaraway.github.io/app-ideas-projects/1-beginner/bin2dec/)
 - [ ] [Border Radius Previewer](https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Border-Radius-Previewer.md) — Preview how CSS3 border-radius values affect an element
 - [ ] [Calculator](https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Calculator-App.md) — Calculator
 - [ ] [Christmas Lights](https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Christmas-Lights-App.md) — Simulate a string of Christmas lights
