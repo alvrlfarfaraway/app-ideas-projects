@@ -1,0 +1,11 @@
+# File sistem operasi
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Pengaturan editor
+.vscode/
+.idea/
+
+# Dependensi (jika nanti memakai npm)
+node_modules/
